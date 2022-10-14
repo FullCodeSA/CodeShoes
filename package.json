@@ -1,0 +1,22 @@
+{
+  "name": "codeshoes",
+  "version": "1.0.0",
+  "description": "Tienda virtual venta de zapatos",
+  "main": "node server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullCodeSA/CodeShoes.git"
+  },
+  "keywords": [
+    "Zapatos"
+  ],
+  "author": "FullCode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FullCodeSA/CodeShoes/issues"
+  },
+  "homepage": "https://github.com/FullCodeSA/CodeShoes#readme"
+}
