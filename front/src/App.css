@@ -168,7 +168,7 @@ f
 }
 
 .card {
-  height: 100%;
+  height: relative;
 }
 
 .card-title a {
@@ -181,7 +181,7 @@ f
 }
 
 .card-body {
-  padding-left: 0;
+  padding-left: 10;
 }
 
 .card-text {

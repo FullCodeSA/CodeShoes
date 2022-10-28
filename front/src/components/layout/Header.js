@@ -21,7 +21,10 @@ const Header = () => {
         <span class="nav-items"  id="cart_count">2</span>
     </div>
 </nav>
+
+
     </Fragment>
+    
   )
 }
 
