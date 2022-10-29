@@ -15,6 +15,30 @@ import Sidebar from './Sidebar';
 export const ProductList = () => {
     const { loading, productos, error } = useSelector(state => state.products)
     const alert = useAlert();
+    const consumir = {
+        "_id": "6358aebcd72d6232da3150b2",
+        "nombre": "Tenis Lysenda Azul",
+        "precio": 119900,
+        "descripcion": "Zapatos deportivos ideales para los atletas. Con propiedades que amortiguan el impacto de tus pisadas y te da mayor comodidad en la práctica de running y otros deportes.",
+        "calificacion": 4.9,
+        "imagen": [
+            {
+                "public_id": "productos/dsvbpny402gelwugv2l",
+                "url": "./img/Tenis_5.png",
+                "_id": "6358aebcd72d6232da3150b3",
+
+            }
+        ],
+        "vendedor": "Juan Herrera",
+        "categoria": "Calzado",
+        "inventario": 40,
+        "numCalificaciones": 32,
+        "opiniones": [
+        ],
+        "fechaCreacion": "2022-10-27T14:30:20.676Z",
+        "__v": 0
+    };
+
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -56,15 +80,15 @@ export const ProductList = () => {
             rows: []
         }
 
-        productos.forEach(product => {
+        productos.forEach(consumir => {
             data.rows.push({
-                nombre: product.nombre,
-                precio: `$${product.precio}`,
-                inventario: product.inventario,
-                vendedor: product.vendedor,
+                nombre: consumir.nombre,
+                precio: `$${consumir.precio}`,
+                inventario: consumir.inventario,
+                vendedor: consumir.vendedor,
                 actions:
                     <Fragment>
-                        <Link to={`/producto/${product._id}`} className="btn btn-primary py-1 px-2">
+                        <Link to={`/producto/${consumir._id}`} className="btn btn-primary py-1 px-2">
                             <i className="fa fa-eye"></i>
                         </Link><Link to="/" className="btn btn-warning py-1 px-2">
                             <i class="fa fa-pencil"></i>
