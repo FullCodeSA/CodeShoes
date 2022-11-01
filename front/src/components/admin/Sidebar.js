@@ -15,25 +15,26 @@ const Sidebar = () => {
                             <Link to="/Dashboard">Administración</Link>
                         </li>
                 <li class="active">
-                    <a  href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
+                    <a  href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                            className="fa fa-product-hunt"></i>Productos</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <Link to="/ProductList">Lista productos</Link>
+                            <Link to="/ProductList"><i className="fa fa-clipboard"></i> Todos</Link>
                         </li>
                         <li>
-                            <Link to="#">Crear Producto</Link>
+                            <Link to="/nuevoProducto"><i className="fa fa-plus"></i> Crear Producto</Link>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <Link to="#">Pedidos</Link>
+                    <Link to="/admin/orders"><i className="fa fa-shopping-basket"></i> Pedidos</Link>
                 </li>
                 
                 <li>
-                    <Link to="#">Usuarios</Link>
+                    <Link to="/admin/users"><i className="fa fa-users"></i> Usuarios</Link>
                 </li>
                 <li>
-                    <Link to="#">Reviews</Link>
+                <Link to="/admin/reviews"><i className="fa fa-star"></i>Reviews</Link>
                 </li>
             </ul>
 

@@ -14,29 +14,7 @@ export const ProductDetails = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const [quantity, setQuantity] = useState(1)
-    const consumir = {
-        "_id": "6358aebcd72d6232da3150b2",
-        "nombre": "Tenis Lysenda Azul",
-        "precio": 119900,
-        "descripcion": "Zapatos deportivos ideales para los atletas. Con propiedades que amortiguan el impacto de tus pisadas y te da mayor comodidad en la práctica de running y otros deportes.",
-        "calificacion": 4.9,
-        "imagen": [
-            {
-                "public_id": "productos/dsvbpny402gelwugv2l",
-                "url": "./img/Tenis_5.png",
-                "_id": "6358aebcd72d6232da3150b3",
-
-            }
-        ],
-        "vendedor": "Juan Herrera",
-        "categoria": "Calzado",
-        "inventario": 40,
-        "numCalificaciones": 32,
-        "opiniones": [
-        ],
-        "fechaCreacion": "2022-10-27T14:30:20.676Z",
-        "__v": 0
-    };
+    
 
 
     useEffect(() => {
@@ -51,7 +29,7 @@ export const ProductDetails = () => {
     const increaseQty = () => {
         const contador = document.querySelector('.count')
 
-        if (contador.valueAsNumber >= consumir.inventario) return;
+        if (contador.valueAsNumber >= product.inventario) return;
 
         const qty = contador.valueAsNumber + 1;
         setQuantity(qty)
@@ -70,7 +48,7 @@ export const ProductDetails = () => {
         <Fragment>
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                 <Fragment>
-                    <MetaData title={consumir.nombre}></MetaData>
+                    <MetaData title={product.nombre}></MetaData>
 
                     <Card className='col-12  mt-1'>
 
@@ -81,9 +59,9 @@ export const ProductDetails = () => {
                                 {/*imagen */}
 
                                 <Carousel pause='hover'>
-                                    {consumir.imagen && consumir.imagen.map(img => (
+                                    {product.imagen && product.imagen.map(img => (
                                         <Carousel.Item key={img.public_id}>
-                                            <img className="d-block w-100" src={"../" + img.url} alt={consumir.nombre}></img>
+                                            <img className="d-block w-100" src={"../" + img.url} alt={product.nombre}></img>
                                         </Carousel.Item>
                                     ))}
                                 </Carousel>
@@ -99,7 +77,7 @@ export const ProductDetails = () => {
                                         </div>
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
-                                                <p>{consumir.descripcion}</p>
+                                                <p>{product.descripcion}</p>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -113,30 +91,30 @@ export const ProductDetails = () => {
                                 
                                     <div class="card" >
                                         <div class="card-header">
-                                            <h2 align="center">{consumir.nombre}</h2>
+                                            <h2 align="center">{product.nombre}</h2>
                                             <br></br>
-                                            <p id="consumir_id" align="center">ID - {consumir._id}</p>
+                                            <p id="product_id" align="center">ID - {product._id}</p>
                                         </div>
 
                                         <div class="card-body">
 
                                             <div className='rating-outer'>
-                                                <div className="rating-inner" style={{ width: `${(consumir.calificacion / 5) * 100}%` }}></div>
+                                                <div className="rating-inner" style={{ width: `${(product.calificacion / 5) * 100}%` }}></div>
                                             </div>
 
-                                            <span id="No_de_reviews">   {consumir.numCalificaciones} - Reviews</span>
+                                            <span id="No_de_reviews">   {product.numCalificaciones} - Reviews</span>
                                             <hr />
-                                            <h2 id="precio_consumiro">${consumir.precio}</h2>
+                                            <h2 id="precio_producto">${product.precio}</h2>
                                             <div className="stockCounter d-inline">
                                                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                                                 <input type="number" className="form-control count d-inline" value={quantity} readOnly />
                                                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                                             </div>
 
-                                            <button type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={consumir.inventario === 0}>Agregar al Carrito</button>
+                                            <button type="button" id="carrito_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario === 0}>Agregar al Carrito</button>
                                             <br/><br/>
-                                            <p>Estado: <span id="stock_stado" className={consumir.inventario > 0 ? 'greenColor' : 'redColor'}>{consumir.inventario > 0 ? "Stock disponible" : "Stock agotado"}</span></p>
-                                            <p id="vendedor">Vendido por: <strong>{consumir.vendedor}</strong></p>
+                                            <p>Estado: <span id="stock_stado" className={product.inventario > 0 ? 'greenColor' : 'redColor'}>{product.inventario > 0 ? "Stock disponible" : "Stock agotado"}</span></p>
+                                            <p id="vendedor">Vendido por: <strong>{product.vendedor}</strong></p>
                                             <button id="btn_review" type="button" className="btn btn-primary mt-4"data-toggle="modal" data-target="#ratingModal">Deja tu Opinion</button>
                                             <div className="alert alert-danger mt-5" type="alert">Inicia Sesión para dejar tu review</div>
 

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Fragment>
       <nav class="navbar">
-        <img src="./img/CodeShoesH.png" class="brand-logo" alt=""></img>
+       <Link to="/"><img src="./img/CodeShoesH.png" class="brand-logo" alt="logo code shoes"></img></Link>
         <ul class="nav-links">
           <li class="nav-items"><a href="http://localhoost:3000">HOMBRE</a></li>
           <li class="nav-items"><a href="http://localhoost:3000">MUJER</a></li>
