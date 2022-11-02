@@ -1,54 +1,60 @@
-const mongoose = require ("mongoose")
+const mongoose=require("mongoose")
 
-const productosSchema = mongoose.Schema({
+const productosSchema=mongoose.Schema({
     nombre:{
         type:String,
-        require:[true,"Por favor registra el nombre del producto."],
+        required:[true,"Por favor registra el nombre del producto."],
         trim:true,
         maxLength:[120,"El nombre del producto no debe exceder los 120 caracteres."]
     },
     precio:{
-        type:Number,
-        require:[true,"por favor registre el precio del producto."],
-        maxLength:[8,"El precio del producto no puede estar por encima de 99'999.999"],
+        type: Number,
+        required:[true,"Por favor registre el precio del producto."],
+        maxLength:[8, "El precio del producto no puede estar por encima de 99'999.999"],
         default: 0.0
     },
     descripcion:{
-        type:String,
-        require:[true,"por favor registre una descripcion para el producto."]
+      type:String,
+      required:[true,"Por favor registre una descripcion para el producto."]
     },
     calificacion:{
-        type:Number,
-        default:0
+        type: Number,
+        default: 0
     },
     imagen:[
         {
             public_id:{
                 type:String,
-                require:true
+                required:true
             },
             url:{
                 type:String,
-                require:true
+                required:true
             }
         }
     ],
-    categotria:{
+    categoria:{
         type:String,
-        require:[true,"Por favor seleccionar la categoria del producto."],
+        required:[true,"Por favor seleccione la categoria del producto."],
         enum:{
             values:[
-              "Botas Outdoor",
-              "Botas y Botines",
-              "Guayos",
-              "Mocasines y Formales",
-              "Tenis",
+                "Alimento seco",
+                "Alimento humedo",
+                "Accesorios",
+                "Cuidado e Higiene",
+                "Medicamentos",
+                "Snacks",
+                "Juguetes"
             ]
         }
     },
     vendedor:{
         type:String,
-        require:[true,"Por favor registre el vendedor de producto"],
+        required:[true,"Por favor registre el vendedor de producto"]
+    },
+    inventario:{
+        type: Number,
+        required:[true, "Por favor registre el stock del producto"],
         maxLength:[5,"Cantidad maxima del producto no puede sobrepasar 99999"],
         default:0
     },
@@ -60,22 +66,29 @@ const productosSchema = mongoose.Schema({
         {
             nombreCliente:{
                 type:String,
-                require:true
+                required:true
             },
             rating:{
                 type:Number,
-                require:true
+                required:true
             },
             comentario:{
                 type:String,
-                require:true
+                required:true
             }
         }
     ],
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+
     fechaCreacion:{
         type:Date,
         default:Date.now
     }
+
 })
 
-module.exports = mongoose.model("productos", productosSchema)
+module.exports=mongoose.model("productos",productosSchema)
