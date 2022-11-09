@@ -187,7 +187,7 @@ f
 }
 
 #view_btn {
-  background-color: #fa9c23;
+  background-color: #002747;
   color: white;
 }
 
@@ -232,7 +232,7 @@ footer {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
-  color: #fdcc0d;
+  color: #141102;
 }
 
 .rating-outer::before {
@@ -572,16 +572,16 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #1f80e0;
+  border-color: #073766;
 }
 
 .page-link {
-  color: #fa9c23;
+  color: #1f80e0;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  color: #0a437c;
 }
 
 /* Admin Sidebar */

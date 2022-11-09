@@ -1,18 +1,19 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { Search } from './Search'
 
 const Header = () => {
   return (
     <Fragment>
       <nav class="navbar">
-       <Link to="/"><img src="./img/CodeShoesH.png" class="brand-logo" alt="logo code shoes"></img></Link>
+        <Link to="/"><img src="./img/CodeShoesH.png" class="brand-logo" alt="logo code shoes"></img></Link>
         <ul class="nav-links">
           <li class="nav-items"><a href="http://localhoost:3000">HOMBRE</a></li>
           <li class="nav-items"><a href="http://localhoost:3000">MUJER</a></li>
         </ul>
 
         <div class="right-container">
-          <input type="text" class="search-box" placeholder="search"></input>
+          <Search></Search>
           <div className="ml-4 dropdown d-inline">
             <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button"
               id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,7 +29,7 @@ const Header = () => {
         </div>
       </nav>
     </Fragment>
-    
+
   )
 }
 
