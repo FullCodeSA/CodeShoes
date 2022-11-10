@@ -219,7 +219,7 @@ footer {
   z-index: 9;
   display: flex;
   align-items: center;*/
-
+    
   margin-top: 8rem;
   color: rgb(7, 9, 31);
   bottom: 0;
@@ -411,8 +411,8 @@ footer {
 }
 
 .wrapper form .btn {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #046ad8;
+  border-color: #002747;
   color: white;
   margin-top: 2.5rem;
 }
@@ -844,3 +844,4 @@ a.article:hover {
         display: none;
     }
 }
+

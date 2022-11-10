@@ -5,25 +5,28 @@ import { getProducts } from '../actions/productActions'
 import { useParams, Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import Pagination from 'react-js-pagination'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
 
 export const Home = () => {
-    const params= useParams();
-    const keyword= params.keyword;
+    const params = useParams();
+    const keyword = params.keyword;
+    const [precio, setPrecio] = useState([100, 1000000])
     const [currentPage, setCurrentPage] = useState(1)
     const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products)
     const alert = useAlert();
-    
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (error) {
             return alert.error(error)
         }
 
-        dispatch(getProducts(currentPage, keyword));
-    }, [dispatch, alert, error, currentPage, keyword])
+        dispatch(getProducts(currentPage, keyword, precio));
+    }, [dispatch, alert, error, currentPage, keyword, precio])
 
-    function setCurrentPageNo(pageNumber){
+    function setCurrentPageNo(pageNumber) {
         setCurrentPage(pageNumber)
     }
     
@@ -36,6 +39,28 @@ export const Home = () => {
 
                     <section id="productos" className='container mt-5'>
                         <div className='row'>
+
+                        <Slider
+                                range
+                                className='t-slider'
+                                marks={{
+                                    100: `$100`,
+                                    1000000: `$1000000`
+                                }}
+                                min={100}
+                                max={1000000}
+                                defaultValue={[100, 1000000]}
+                                tipFormatter={value => `$${value}`}
+                                tipProps={{
+                                    placement: 'top',
+                                    prefixCls: 'rc-slider-tooltip',
+                                    visible: true
+                                }}
+                                value={precio}
+                                onChange={precio => setPrecio(precio)}
+                            ></Slider>
+                            <hr></hr>
+
                             {products && products.map(producto => (
                                 <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
                                     <div className='card p-3 rounded'>
