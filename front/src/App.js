@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import Home from './components/Home';
@@ -11,9 +11,15 @@ import ProductsList from './components/admin/ProductsList';
 import NewProduct from './components/admin/newProduct';
 import Cart from './components/cart/Cart';
 import { Login } from './components/user/Login';
+import { Register } from './components/user/Register';
+import { loadUser } from './actions/userActions';
+import  store  from './store';
 
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser())
+  },[])
   return (
     <Router>
     <div className="App">
@@ -29,6 +35,7 @@ function App() {
             <Route path="/search/:keyword" element={<Home />}/>
             <Route path="/carrito" element={<Cart />}/>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register/>} />
           </Routes>
         </div>
         <Footer />
