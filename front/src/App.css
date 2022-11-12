@@ -9,9 +9,16 @@ body{
   background: #ffffff;
   position: relative;
   font-family: roboto, sans-serif;
-  
-  
+
+	
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	min-height: 100vh;
+	margin: 0;
 }
+  
 
 .navbar{
   width: 100%;
@@ -209,21 +216,28 @@ f
 
 /* Footer */
 footer {
- /* width: 100%;
-  height: 80px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0 4%;
-  background: #3e4d6b;
-  z-index: 9;
-  display: flex;
-  align-items: center;*/
-    
-  margin-top: 8rem;
-  color: rgb(7, 9, 31);
+  background-color: #0c111b;
+  color: #fff;
+  font-size: 14px;
   bottom: 0;
-  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer i {
+  color: red;
+}
+
+footer a {
+  color: #3c97bf;
+  text-decoration: none;
 }
 
 /* Ratings */
@@ -844,4 +858,23 @@ a.article:hover {
         display: none;
     }
 }
+/*perfil*/
+.card-container {
+	background-color: #0c111b;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #ecedf1;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
+}
 
+button.primary {
+	background-color: rgb(255, 255, 255);
+	border-radius: 3px;
+	color: #231E39;
+	font-weight: 500;
+	padding: 10px 25px;
+}
