@@ -84,7 +84,7 @@ exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{
 
     const mensaje=`Hola!\n\nTu link para ajustar una nueva contraseña es el 
     siguiente: \n\n${resetUrl}\n\n
-    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\nVetyShop Store`
+    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\n CodeShoes`
 
     try{
         await sendEmail({
