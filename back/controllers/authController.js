@@ -84,7 +84,7 @@ exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{
 
     const mensaje=`Hola!\n\nTu link para ajustar una nueva contraseña es el 
     siguiente: \n\n${resetUrl}\n\n
-    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\n CodeShoes`
+    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\nVetyShop Store`
 
     try{
         await sendEmail({
@@ -232,7 +232,7 @@ exports.updateUser= catchAsyncErrors (async(req, res, next)=>{
     const nuevaData={
         nombre: req.body.nombre,
         email: req.body.email,
-        role: req.body.rol
+        role: req.body.role
     }
 
     const user= await User.findByIdAndUpdate(req.params.id, nuevaData, {

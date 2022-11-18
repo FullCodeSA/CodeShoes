@@ -601,17 +601,11 @@ footer a {
 /* Admin Sidebar */
 
 .sidebar-wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-  min-height: 100vh;
-  font-weight: normal;
-
-  margin-top: 0;
+   overflow: hidden;
+  width: 210px;
   height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 10;
+  float: left;
+  background: #2A2D33;
 }
 #sidebar {
   min-width: 100%;
@@ -619,6 +613,7 @@ footer a {
   background: #232f3e;
   color: #fff;
   transition: all 0.3s;
+  
 }
 #sidebar.active {
   margin-left: -250px;

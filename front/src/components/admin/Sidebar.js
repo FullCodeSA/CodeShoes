@@ -1,7 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAlert } from 'react-alert'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../actions/userActions'
+
+
 
 const Sidebar = () => {
+    
+  
+    const alert = useAlert();
+    const dispatch = useDispatch();
+  
+    const { user, loading } = useSelector(state => state.auth)
+    
+    const logoutHandler = () =>{
+      dispatch(logout());
+      alert.success("Logiyt exitoso")
+    }
+
     return (
         <div class="wrapper">
         
@@ -27,20 +44,20 @@ const Sidebar = () => {
                     </ul>
                 </li>
                 <li>
-                    <Link to="/admin/orders"><i className="fa fa-shopping-basket"></i> Pedidos</Link>
+                <Link to="/orderList"><i className="fa fa-shopping-basket"></i> Pedidos</Link>
                 </li>
                 
                 <li>
-                    <Link to="/admin/users"><i className="fa fa-users"></i> Usuarios</Link>
+                <Link to="/admin/users"><i className="fa fa-users"></i> Usuarios</Link>
                 </li>
                 <li>
-                <Link to="/admin/reviews"><i className="fa fa-star"></i>Reviews</Link>
+                <Link to="/admin/reviews"><i className="fa fa-star"></i> Opiniones</Link>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <Link to="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Cerrar Sesión</Link>
+                <Link class="article" className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesión</Link>
                 </li>
             </ul>
         </nav>
