@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     let outOfStock = 0;
     products.forEach(product => {
-        if (product.stock === 0) {
+        if (product.inventario === 0) {
             outOfStock += 1;
         }
     })
@@ -41,6 +41,7 @@ const Dashboard = () => {
                 <div className="col-12 col-md-10">
                     <h1 className="my-3 text-center">Dashboard</h1>
 
+                    {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                         <Fragment>
                             <MetaData title={'Administracion'} />
 
@@ -110,6 +111,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </Fragment>
+                        )}
                 </div>
             </div>
 
@@ -119,6 +121,5 @@ const Dashboard = () => {
 
 
     
-
 
 export default Dashboard

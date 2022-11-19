@@ -1,31 +1,30 @@
 import React, { Fragment } from 'react'
-import { useAlert } from 'react-alert'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import "../../App.css"
+import { Link } from "react-router-dom"
 import { Search } from './Search'
-import { logout } from '../../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { useAlert } from 'react-alert'
+import { logout} from "../../actions/userActions"
 
-const Header = () => {
+const Header = () => {const {cartItems} = useSelector(state=>state.cart)
+    
+const alert= useAlert();
+const dispatch= useDispatch();
 
+const { user, loading } = useSelector(state => state.auth)
 
-  const {cartItems} = useSelector(state => state.cart)
-  const alert = useAlert();
-  const dispatch = useDispatch();
-
-  const { user, loading } = useSelector(state => state.auth)
-  
-  const logoutHandler = () =>{
+const logoutHandler = () =>{
     dispatch(logout());
-    alert.success("Logiyt exitoso")
-  }
+    alert.success("LogOut exitoso")
+}
   return (
     <Fragment>
       <nav class="navbar">
         <Link to="/"><img src="./img/CodeShoesH.png" class="brand-logo" alt="logo code shoes"></img></Link>
-        <ul class="nav-links">
+        {/* <ul class="nav-links">
           <li class="nav-items"><a href="http://localhoost:3000">HOMBRE</a></li>
           <li class="nav-items"><a href="http://localhoost:3000">MUJER</a></li>
-        </ul>
+        </ul> */}
         <div class="right-container">
           <Search></Search>
         </div>
@@ -51,17 +50,17 @@ const Header = () => {
                             <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
                                 {/*Preguntamos el rol de quien esta online*/}
                                 {user && user.role === "admin" && (
-                                    <Link className="dropdown-item" to="/dashboard">Adm. Productos</Link>
+                                    <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
                                 )}
 
                                 <Link className="dropdown-item" to="/myOrders">Pedidos</Link>
                                 <Link className="dropdown-item" to="/yo">Mi Perfil</Link>
-                                <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesión</Link>
+                                <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
                                
                             </div>
                         </div>
           
-            ): !loading &&  <Link to="/login"><button class="sub-btn">Login</button></Link>}
+            ): !loading && <Link to="/login" className='btn ml-4' id="login_btn">Login</Link>}
 
       </div>
     </nav>
